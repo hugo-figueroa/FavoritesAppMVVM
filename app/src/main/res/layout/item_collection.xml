@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemFavoriteViewModel"
+            type="com.favorites.appmvvm.viewmodel.ItemFavoriteViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.favorites.ui.controls.FUICollectionView
+            android:id="@+id/fuiCV"
+            android:layout_width="180dp"
+            android:layout_height="190dp"
+            android:layout_margin="5dp"
+            app:collectionImage1Drawable="@{itemFavoriteViewModel.imageUrlCollectionImage1}"
+            app:collectionImage2Drawable="@{itemFavoriteViewModel.imageUrlCollectionImage2}"
+            app:collectionImage3Drawable="@{itemFavoriteViewModel.imageUrlCollectionImage3}"
+            app:collectionQuantity="@{itemFavoriteViewModel.collectionQuantity}"
+            app:collectionTitle="@{itemFavoriteViewModel.collectionTitle}" />
+
+    </LinearLayout>
+
+</layout>
