@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Favorites App</string>
+
+    <string name="loading">Cargando...</string>
 </resources>
