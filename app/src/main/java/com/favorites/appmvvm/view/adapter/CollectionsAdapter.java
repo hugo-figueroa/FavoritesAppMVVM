@@ -16,11 +16,11 @@ import java.util.List;
 /**
  * 14/03/18
  */
-public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder> {
+public class CollectionsAdapter extends RecyclerView.Adapter<CollectionsAdapter.FavoritesViewHolder> {
 
     private List<Favorites> favoritesList;
 
-    public FavoritesAdapter() {
+    public CollectionsAdapter() {
         this.favoritesList = Collections.emptyList();
     }
 
