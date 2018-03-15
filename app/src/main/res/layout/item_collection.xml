@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="itemFavoriteViewModel"
-            type="com.favorites.appmvvm.viewmodel.ItemFavoriteViewModel" />
+            name="itemCollentionsViewModel"
+            type="com.favorites.appmvvm.viewmodel.ItemCollentionsViewModel" />
     </data>
 
     <LinearLayout
@@ -19,11 +19,11 @@
             android:layout_width="180dp"
             android:layout_height="190dp"
             android:layout_margin="5dp"
-            app:collectionImage1Drawable="@{itemFavoriteViewModel.imageUrlCollectionImage1}"
-            app:collectionImage2Drawable="@{itemFavoriteViewModel.imageUrlCollectionImage2}"
-            app:collectionImage3Drawable="@{itemFavoriteViewModel.imageUrlCollectionImage3}"
-            app:collectionQuantity="@{itemFavoriteViewModel.collectionQuantity}"
-            app:collectionTitle="@{itemFavoriteViewModel.collectionTitle}" />
+            app:collectionImage1Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage1}"
+            app:collectionImage2Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage2}"
+            app:collectionImage3Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage3}"
+            app:collectionQuantity="@{itemCollentionsViewModel.collectionQuantity}"
+            app:collectionTitle="@{itemCollentionsViewModel.collectionTitle}" />
 
     </LinearLayout>
 

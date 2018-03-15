@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.favorites.appmvvm.R;
 import com.favorites.appmvvm.databinding.ItemCollectionBinding;
-import com.favorites.appmvvm.viewmodel.ItemFavoriteViewModel;
+import com.favorites.appmvvm.viewmodel.ItemCollentionsViewModel;
 import com.favorites.core.favorites.models.Favorites;
 
 import java.util.Collections;
@@ -40,7 +40,7 @@ public class CollectionsAdapter extends RecyclerView.Adapter<CollectionsAdapter.
 
     @Override
     public void onBindViewHolder(FavoritesViewHolder holder, int position) {
-        holder.binding.setItemFavoriteViewModel(new ItemFavoriteViewModel(favoritesList.get(position), holder.itemView.getContext()));
+        holder.binding.setItemFavoriteViewModel(new ItemCollentionsViewModel(favoritesList.get(position), holder.itemView.getContext()));
         holder.binding.executePendingBindings();
     }
 

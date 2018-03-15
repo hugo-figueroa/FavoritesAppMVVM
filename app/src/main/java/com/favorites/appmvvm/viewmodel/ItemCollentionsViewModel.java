@@ -7,11 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.favorites.appmvvm.R;
 import com.favorites.core.favorites.models.Favorites;
@@ -20,13 +16,13 @@ import com.favorites.ui.controls.FUICollectionView;
 /**
  * 14/03/18
  */
-public class ItemFavoriteViewModel {
+public class ItemCollentionsViewModel {
 
     private static Favorites favorites;
     private static Context context;
     private Object[] keys;
 
-    public ItemFavoriteViewModel(Favorites favorites, Context context) {
+    public ItemCollentionsViewModel(Favorites favorites, Context context) {
         this.favorites = favorites;
         keys = favorites.getProducts().keySet().toArray();
         this.context = context;
