@@ -7,8 +7,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
+import com.favorites.appmvvm.R;
 import com.favorites.core.favorites.models.Favorites;
 import com.favorites.ui.controls.FUICollectionView;
 
@@ -58,7 +63,15 @@ public class ItemFavoriteViewModel {
                             fuiCollectionView.setCollectionImage1Drawable(resource);
 
                         }
+
+                        @Override
+                        public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                            fuiCollectionView.setCollectionImage1Drawable(context.getResources().getDrawable(R.drawable.ic_favorite_placeholder));
+                            super.onLoadFailed(errorDrawable);
+                        }
                     });
+        } else {
+            fuiCollectionView.setCollectionImage1Drawable(context.getResources().getDrawable(R.drawable.ic_favorite_placeholder));
         }
     }
 
@@ -73,7 +86,15 @@ public class ItemFavoriteViewModel {
                             fuiCollectionView.setCollectionImage2Drawable(resource);
 
                         }
+
+                        @Override
+                        public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                            fuiCollectionView.setCollectionImage2Drawable(context.getResources().getDrawable(R.drawable.ic_favorite_placeholder));
+                            super.onLoadFailed(errorDrawable);
+                        }
                     });
+        } else {
+            fuiCollectionView.setCollectionImage2Drawable(context.getResources().getDrawable(R.drawable.ic_favorite_placeholder));
         }
     }
 
@@ -88,7 +109,15 @@ public class ItemFavoriteViewModel {
                             fuiCollectionView.setCollectionImage3Drawable(resource);
 
                         }
+
+                        @Override
+                        public void onLoadFailed(@Nullable Drawable errorDrawable) {
+                            fuiCollectionView.setCollectionImage3Drawable(context.getResources().getDrawable(R.drawable.ic_favorite_placeholder));
+                            super.onLoadFailed(errorDrawable);
+                        }
                     });
+        } else {
+            fuiCollectionView.setCollectionImage3Drawable(context.getResources().getDrawable(R.drawable.ic_favorite_placeholder));
         }
     }
 }
