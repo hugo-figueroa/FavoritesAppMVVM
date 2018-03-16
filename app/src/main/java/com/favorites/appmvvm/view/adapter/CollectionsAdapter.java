@@ -40,7 +40,7 @@ public class CollectionsAdapter extends RecyclerView.Adapter<CollectionsAdapter.
 
     @Override
     public void onBindViewHolder(FavoritesViewHolder holder, int position) {
-        holder.binding.setItemFavoriteViewModel(new ItemCollentionsViewModel(favoritesList.get(position), holder.itemView.getContext()));
+        holder.binding.setItemCollentionsViewModel(new ItemCollentionsViewModel(favoritesList.get(position), holder.itemView.getContext()));
         holder.binding.executePendingBindings();
     }
 

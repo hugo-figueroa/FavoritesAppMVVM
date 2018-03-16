@@ -32,17 +32,6 @@ public class BaseActivity extends AppCompatActivity implements LifecycleOwner {
         }
     }
 
-    protected void showAlertMessage(String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        builder.show();
-    }
-
     @Override
     public LifecycleRegistry getLifecycle() {
         return lifecycleRegistry;

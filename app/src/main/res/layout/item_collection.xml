@@ -9,22 +9,16 @@
             type="com.favorites.appmvvm.viewmodel.ItemCollentionsViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <com.favorites.ui.controls.FUICollectionView
-            android:id="@+id/fuiCV"
-            android:layout_width="180dp"
-            android:layout_height="190dp"
-            android:layout_margin="5dp"
-            app:collectionImage1Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage1}"
-            app:collectionImage2Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage2}"
-            app:collectionImage3Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage3}"
-            app:collectionQuantity="@{itemCollentionsViewModel.collectionQuantity}"
-            app:collectionTitle="@{itemCollentionsViewModel.collectionTitle}" />
-
-    </LinearLayout>
+    <com.favorites.ui.controls.FUICollectionView
+        android:id="@+id/fuiCV"
+        android:layout_width="180dp"
+        android:layout_height="190dp"
+        android:layout_margin="5dp"
+        android:background="@android:color/white"
+        app:collectionImage1Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage1}"
+        app:collectionImage2Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage2}"
+        app:collectionImage3Drawable="@{itemCollentionsViewModel.imageUrlCollectionImage3}"
+        app:collectionQuantity="@{itemCollentionsViewModel.collectionQuantity}"
+        app:collectionTitle="@{itemCollentionsViewModel.collectionTitle}" />
 
 </layout>
