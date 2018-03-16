@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Favorites App</string>
+
+    <string name="loading">Cargando...</string>
+    <string name="add_collection">Agregar colección</string>
+    <string name="all_favorites">Todos mis favoritos</string>
+
+    <string name="favorites">Favoritos</string>
+    <string name="home">Inicio</string>
+    <string name="search">Buscar</string>
+    <string name="account">Mi Cuenta</string>
+    <string name="shopping_cart">Carrito</string>
 </resources>

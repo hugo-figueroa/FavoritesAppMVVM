@@ -6,41 +6,42 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.favorites.appmvvm.R;
-import com.favorites.appmvvm.databinding.ItemCollectionBinding;
-import com.favorites.appmvvm.viewmodel.ItemFavoriteViewModel;
+import com.favorites.appmvvm.databinding.ItemFavoriteBinding;
+import com.favorites.appmvvm.viewmodel.ItemFavoritesViewModel;
 import com.favorites.core.favorites.models.Favorites;
 
-import java.util.Collections;
-import java.util.List;
+import java.util.LinkedHashMap;
 
 /**
- * 14/03/18
+ * 15/03/18
  */
 public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.FavoritesViewHolder> {
 
-    private List<Favorites> favoritesList;
+    private LinkedHashMap<String, Favorites.Products> favoritesList;
+    private Object[] keys;
 
     public FavoritesAdapter() {
-        this.favoritesList = Collections.emptyList();
+        this.favoritesList = new LinkedHashMap<>();
     }
 
     @Override
     public FavoritesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ItemCollectionBinding itemCollectionBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.getContext()), R.layout.item_collection,
+        ItemFavoriteBinding itemFavoriteBinding = DataBindingUtil
+                .inflate(LayoutInflater.from(parent.getContext()), R.layout.item_favorite,
                         parent, false);
 
-        return new FavoritesViewHolder(itemCollectionBinding);
+        return new FavoritesViewHolder(itemFavoriteBinding);
     }
 
-    public void setFavoritesList(List<Favorites> favoritesList) {
+    public void setFavoritesList(LinkedHashMap<String, Favorites.Products> favoritesList) {
         this.favoritesList = favoritesList;
+        keys = favoritesList.keySet().toArray();
         notifyDataSetChanged();
     }
 
     @Override
     public void onBindViewHolder(FavoritesViewHolder holder, int position) {
-        holder.binding.setItemFavoriteViewModel(new ItemFavoriteViewModel(favoritesList.get(position), holder.itemView.getContext()));
+        holder.binding.setItemFavoritesViewModel(new ItemFavoritesViewModel(favoritesList.get(keys[position]), holder.itemView.getContext()));
         holder.binding.executePendingBindings();
     }
 
@@ -56,9 +57,9 @@ public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.Favo
 
     public static class FavoritesViewHolder extends RecyclerView.ViewHolder {
 
-        final ItemCollectionBinding binding;
+        final ItemFavoriteBinding binding;
 
-        public FavoritesViewHolder(ItemCollectionBinding binding) {
+        public FavoritesViewHolder(ItemFavoriteBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

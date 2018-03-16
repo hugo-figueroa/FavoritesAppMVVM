@@ -7,6 +7,8 @@ import android.arch.lifecycle.LifecycleRegistry;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 
+import com.favorites.appmvvm.R;
+
 /**
  * 14/03/18
  */
@@ -18,6 +20,8 @@ public class BaseActivity extends AppCompatActivity implements LifecycleOwner {
     protected void showLoading() {
         if (progressDialog == null) {
             progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage(getString(R.string.loading));
+            progressDialog.setCancelable(false);
             progressDialog.show();
         }
     }
@@ -26,17 +30,6 @@ public class BaseActivity extends AppCompatActivity implements LifecycleOwner {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.cancel();
         }
-    }
-
-    protected void showAlertMessage(String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        builder.show();
     }
 
     @Override

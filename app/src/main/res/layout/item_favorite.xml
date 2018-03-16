@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="itemFavoritesViewModel"
+            type="com.favorites.appmvvm.viewmodel.ItemFavoritesViewModel" />
+    </data>
+
+    <com.favorites.ui.controls.FUIFavoritesView
+        android:id="@+id/fuiFV"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        app:conditionType="@{itemFavoritesViewModel.conditionType}"
+        app:freeShipping="@{itemFavoritesViewModel.freeShipping}"
+        app:imported="@{itemFavoritesViewModel.imported}"
+        app:plusLevel="@{itemFavoritesViewModel.plusLevel}"
+        app:productImageDrawable="@{itemFavoritesViewModel.productImageUrl}" />
+
+</layout>

@@ -16,6 +16,8 @@ public class FavoritesActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorites_activity);
 
+        getWindow().setBackgroundDrawable(null);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -38,7 +40,7 @@ public class FavoritesActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.addCollection) {
-            Toast.makeText(this, "Agregar colección", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.add_collection), Toast.LENGTH_SHORT).show();
             return true;
         }
         return super.onOptionsItemSelected(item);
