@@ -8,7 +8,9 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +19,13 @@ import android.widget.Toast;
 import com.favorites.appmvvm.R;
 import com.favorites.appmvvm.databinding.FragmentFavoritesBinding;
 import com.favorites.appmvvm.view.adapter.CollectionsAdapter;
+import com.favorites.appmvvm.view.adapter.FavoritesAdapter;
 import com.favorites.appmvvm.viewmodel.FavoritesViewModel;
 import com.favorites.core.favorites.models.Favorites;
 import com.favorites.core.generics.models.FCError;
 import com.favorites.core.generics.models.FCResponse;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -34,6 +38,7 @@ public class FavoritesFragment<T> extends LifecycleFragment {
     private FragmentFavoritesBinding binding;
     private FavoritesViewModel favoritesViewModel;
     private CollectionsAdapter collectionsAdapter;
+    private FavoritesAdapter favoritesAdapter;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -54,6 +59,12 @@ public class FavoritesFragment<T> extends LifecycleFragment {
         binding.rcvCollections.setNestedScrollingEnabled(false);
         binding.rcvCollections.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         binding.rcvCollections.setAdapter(collectionsAdapter);
+
+        favoritesAdapter = new FavoritesAdapter();
+        binding.rcvFavorites.setNestedScrollingEnabled(false);
+        binding.rcvFavorites.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        binding.rcvFavorites.setAdapter(favoritesAdapter);
+
         return binding.getRoot();
     }
 
@@ -65,7 +76,15 @@ public class FavoritesFragment<T> extends LifecycleFragment {
             public void onChanged(@Nullable T favorites) {
                 if (favorites instanceof FCResponse) {
                     List<Favorites> favoritesList = (List<Favorites>) ((FCResponse) favorites).getResponse();
+
                     collectionsAdapter.setFavoritesList(favoritesList);
+
+                    LinkedHashMap<String, Favorites.Products> favsList = new LinkedHashMap<>();
+                    for (Favorites favs : favoritesList) {
+                        favsList.putAll(favs.getProducts());
+                    }
+                    favoritesAdapter.setFavoritesList(favsList);
+
                 } else if (favorites instanceof FCError) {
                     FCError fcError = ((FCError) favorites);
                     Toast.makeText(getActivity(), fcError.getMessage(), Toast.LENGTH_SHORT).show();

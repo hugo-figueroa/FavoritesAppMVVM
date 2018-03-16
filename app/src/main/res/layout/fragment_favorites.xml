@@ -8,33 +8,40 @@
     </data>
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nsvFavorites"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background_gray"
         android:orientation="vertical"
         android:overScrollMode="always">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:focusableInTouchMode="true"
             android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcvCollections"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@android:color/white" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:gravity="center"
-                android:text="Todos mis favoritos"
+                android:text="@string/all_favorites"
+                android:textColor="@android:color/black"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcvFavorites"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="never" />
+                android:overScrollMode="never"
+                android:paddingRight="10dp" />
 
         </LinearLayout>
 
